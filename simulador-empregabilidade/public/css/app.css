@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.users-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.user-card img {
+    width: 100%;
+}
