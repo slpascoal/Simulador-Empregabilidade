@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    <h1>Perfis de Usuários</h1>
+    <h1>Simulador de Empregabilidade</h1>
+    <p>Essa aplilcação traça uma lista de usuários. <br>Você pode filtrar suas habilidades e experiências de trabalho, para difinir se é a pesoa correta para o cargo!</p>
 
     <!-- Filtros por Habilidades e Títulos -->
     <form method="GET" action="/users">
