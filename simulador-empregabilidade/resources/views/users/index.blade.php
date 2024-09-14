@@ -20,7 +20,7 @@
             @endforeach
         </select>
 
-        <label for="title">Filtrar por Posição:</label>
+        <label for="title">Filtrar por Cargo:</label>
         <input type="text" name="title" id="title" value="{{ request('title') }}">
 
         <button type="submit">Filtrar</button>
