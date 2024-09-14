@@ -4,15 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Empregabilidade</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Fonte padrão App -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <!-- Fonte Escrita ID -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="BodyContainer">
+        <h1>Simulador de Empregabilidade</h1>
         <div class="corpo">
             <header class="header">
-                <h1>Simulador de Empregabilidade</h1>
                 <p>Essa aplicação traça uma lista de usuários. <br>Você pode filtrar suas habilidades e experiências de trabalho, para difinir se é a pesoa correta para o cargo!</p>
             </header>
             <!-- Filtros por Habilidades e Cargos -->
@@ -39,14 +44,24 @@
                 @if(count($users) > 0)
                     @foreach ($users as $user)
                         <div class="user-card">
-                            <img src="{{ $user['avatar'] }}" alt="Avatar" style="width:100px;height:100px;">
-                            <h2>{{ $user['first_name'] }} {{ $user['last_name'] }}</h2>
-                            <p>{{ $user['employment']['title'] }} - Habilidade: {{ $user['employment']['key_skill'] }}</p>
-                            <p>{{ $user['address']['city'] }}, {{ $user['address']['state'] }}</p>
+                            <div class="areaIMG">
+                                <img src="{{ $user['avatar'] }}" alt="Avatar" style="width:100px;height:100px;">
+                                <h2>{{ $user['first_name'] }} {{ $user['last_name'] }}</h2>
+                            </div>
+                            <div class="areaInfo">
+                                <h3>Experiência:</h3>
+                                <p>• {{ $user['employment']['title'] }}</p>
+                                <br>
+                                <h3>Habilidade:</h3>
+                                <p>• {{ $user['employment']['key_skill'] }}</p>
+                                <br>
+                                <h3>Endereço:</h3>
+                                <p>• {{ $user['address']['city'] }}, {{ $user['address']['state'] }}</p>
+                            </div>
                         </div>
                     @endforeach
                 @else
-                    <p>Nenhum usuário encontrado com os filtros aplicados.</p>
+                    <h4>Nenhum usuário encontrado com os filtros aplicados.</h4>
                 @endif
             </div>
         </div>
