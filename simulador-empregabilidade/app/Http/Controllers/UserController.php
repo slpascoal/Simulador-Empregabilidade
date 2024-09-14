@@ -10,11 +10,14 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $client = new Client([
-            'verify' => false // Desativa a verificação do certificado SSL
+            'verify' => false
         ]);
 
         $response = $client->get('https://random-data-api.com/api/v2/users?size=100');
         $users = json_decode($response->getBody()->getContents(), true);
+
+        // Extrair habilidades únicas
+        $skills = array_unique(array_column(array_column($users, 'employment'), 'key_skill'));
 
         if ($request->has('key_skill')) {
             $users = array_filter($users, function($user) use ($request) {
@@ -28,6 +31,6 @@ class UserController extends Controller
             });
         }
 
-        return view('users.index', compact('users'));
+        return view('users.index', compact('users', 'skills'));
     }
 }

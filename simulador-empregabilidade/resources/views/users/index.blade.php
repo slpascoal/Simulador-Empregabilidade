@@ -12,14 +12,16 @@
     <form method="GET" action="/users">
         <label for="key_skill">Filtrar por Habilidade:</label>
         <select name="key_skill" id="key_skill">
-            <option value="">Selecione</option>
-            <option value="Teamwork">Teamwork</option>
-            <option value="Communication">Communication</option>
-            <!-- Adicionar mais opções conforme necessário -->
+            <option value="">-- Selecione uma habilidade --</option>
+            @foreach($skills as $skill)
+                <option value="{{ $skill }}" {{ request('key_skill') == $skill ? 'selected' : '' }}>
+                    {{ $skill }}
+                </option>
+            @endforeach
         </select>
 
         <label for="title">Filtrar por Posição:</label>
-        <input type="text" name="title" id="title" placeholder="Digite o título do emprego">
+        <input type="text" name="title" id="title" value="{{ request('title') }}">
 
         <button type="submit">Filtrar</button>
     </form>
