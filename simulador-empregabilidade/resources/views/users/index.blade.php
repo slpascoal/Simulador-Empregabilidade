@@ -8,7 +8,7 @@
 <body>
     <h1>Perfis de Usuários</h1>
 
-    <!-- Filtros por Habilidades e Títulos -->
+    <!-- Filtros por Habilidades e Cargos -->
     <form method="GET" action="/users">
         <label for="key_skill">Filtrar por Habilidade:</label>
         <select name="key_skill" id="key_skill">
@@ -28,14 +28,18 @@
 
     <!-- Exibição dos Usuários -->
     <div class="users-list">
-        @foreach ($users as $user)
-            <div class="user-card">
-                <img src="{{ $user['avatar'] }}" alt="Avatar">
-                <h2>{{ $user['first_name'] }} {{ $user['last_name'] }}</h2>
-                <p>{{ $user['employment']['title'] }} - Habilidade: {{ $user['employment']['key_skill'] }}</p>
-                <p>{{ $user['address']['city'] }}, {{ $user['address']['state'] }}</p>
-            </div>
-        @endforeach
+        @if(count($users) > 0)
+            @foreach ($users as $user)
+                <div class="user-card">
+                    <img src="{{ $user['avatar'] }}" alt="Avatar" style="width:100px;height:100px;">
+                    <h2>{{ $user['first_name'] }} {{ $user['last_name'] }}</h2>
+                    <p>{{ $user['employment']['title'] }} - Habilidade: {{ $user['employment']['key_skill'] }}</p>
+                    <p>{{ $user['address']['city'] }}, {{ $user['address']['state'] }}</p>
+                </div>
+            @endforeach
+        @else
+            <p>Nenhum usuário encontrado com os filtros aplicados.</p>
+        @endif
     </div>
 </body>
 </html>
