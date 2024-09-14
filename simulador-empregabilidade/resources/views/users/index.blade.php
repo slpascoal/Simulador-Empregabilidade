@@ -18,7 +18,7 @@
         <h1>Simulador de Empregabilidade</h1>
         <div class="corpo">
             <header class="header">
-                <p>Essa aplicação traça uma lista de usuários. <br>Você pode filtrar suas habilidades e experiências de trabalho, para difinir se é a pesoa correta para o cargo!</p>
+                <p>Essa aplicação traça uma lista de usuários. <br>Você pode filtrar suas habilidades e experiências de trabalho, para definir se é a pessoa correta para o cargo!</p>
             </header>
             <!-- Filtros por Habilidades e Cargos -->
             <nav class="navbar">
@@ -36,7 +36,14 @@
                     <label for="title">Filtrar por Cargo:</label>
                     <input type="text" name="title" id="title" value="{{ request('title') }}">
                     <br>
-                    <button type="submit">Filtrar</button>
+                    <!-- <button type="submit">Filtrar</button> -->
+                    <button type="submit" class="button-82-pushable" role="button">
+                    <span class="button-82-shadow"></span>
+                    <span class="button-82-edge"></span>
+                    <span class="button-82-front text">
+                        FILTRAR
+                    </span>
+                    </button>
                 </form>
             </nav>
             <!-- Exibição dos Usuários -->

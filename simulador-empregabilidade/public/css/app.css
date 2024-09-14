@@ -1,18 +1,18 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
 body {
     font-family: "SUSE", sans-serif;
-    background-color: #f9f1f1 ;
+    background-color: #f9f1f1;
 }
 
-.BodyContainer{
+.BodyContainer {
     height: 100vh;
     width: 100%;
 
-    h1{
+    h1 {
         padding-top: 20px;
         padding-bottom: 20px;
         text-align: center;
@@ -22,27 +22,122 @@ body {
     }
 }
 
-.corpo{
+.corpo {
     width: 80%;
     margin: 0 auto;
 }
 
-.header{
+.header {
     padding: 10px;
     text-align: center;
 }
 
-.navbar{
+.navbar {
     text-align: center;
     padding: 10px;
 
-    select{
+    select {
         margin-bottom: 10px;
     }
 
-    input{
+    input {
         margin-bottom: 10px;
     }
+}
+
+.button-82-pushable {
+    margin-top: 10px;
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-82-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition:
+        transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.button-82-edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(to left,
+            hsl(118, 100%, 16%) 0%,
+            hsl(147, 36%, 40%) 82%,
+            hsl(147, 71%, 31%) 92%,
+            hsl(147, 97%, 12%) 100%);
+}
+
+.button-82-front {
+    display: block;
+    position: relative;
+    padding: 12px 27px;
+    border-radius: 12px;
+    font-size: 15px !important;
+    font-weight: bold;
+    color: white;
+    background: #194b2e;
+    will-change: transform;
+    transform: translateY(-4px);
+    transition:
+        transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+@media (min-width: 768px) {
+    .button-82-front {
+        font-size: 1.25rem;
+        padding: 12px 42px;
+    }
+}
+
+.button-82-pushable:hover {
+    filter: brightness(110%);
+    -webkit-filter: brightness(110%);
+}
+
+.button-82-pushable:hover .button-82-front {
+    transform: translateY(-6px);
+    transition:
+        transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+.button-82-pushable:hover .button-82-shadow {
+    transform: translateY(4px);
+    transition:
+        transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+}
+
+.button-82-pushable:focus:not(:focus-visible) {
+    outline: none;
 }
 
 .users-list {
@@ -50,7 +145,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 
-    h4{
+    h4 {
         text-align: center;
         padding-top: 20px;
     }
@@ -73,20 +168,20 @@ body {
 
     cursor: pointer;
 
-    h2{
+    h2 {
         text-align: center;
         padding-top: 10px;
         font-family: "Caveat", cursive, sans-serif;
         font-size: 20px;
     }
 
-    h3{
+    h3 {
         font-size: 16px;
         text-transform: uppercase;
         color: #24803b;
     }
 
-    p{
+    p {
         font-size: 14px;
         font-family: 'Courier New', Courier, monospace;
         text-transform: uppercase;
