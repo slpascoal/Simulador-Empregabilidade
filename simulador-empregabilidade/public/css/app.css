@@ -255,6 +255,13 @@ body {
             text-transform: uppercase;
         }
 
+        button:first-child{
+            background-color: rgb(6, 27, 71);
+            border: none;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
         button:hover{
             transform: scale(1.05);
             transition: 0.4s;
