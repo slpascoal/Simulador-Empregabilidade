@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function sendRecommendationEmail(user) {
     const templateParams = {
-        to_email: 'slpascoal01@gmail.com',
+        to_email: window.env.EMAILJS_USER_EMAIL,
         subject: `Recomendação de Usuário: ${user.name}`,
         message: `
             <h1>Recomendação de Usuário</h1>
@@ -59,7 +59,7 @@ function sendRecommendationEmail(user) {
         `
     };
 
-    emailjs.send('service_ehkkeac', 'template_jvjcyfg', templateParams)
+    emailjs.send( window.env.EMAILJS_SERVICE_ID, window.env.EMAILJS_TEMPLATE_ID, templateParams)
         .then(function(response) {
             console.log('Email enviado com sucesso:', response);
             alert('Recomendação enviada com sucesso!');

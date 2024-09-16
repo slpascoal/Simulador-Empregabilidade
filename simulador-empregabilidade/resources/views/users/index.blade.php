@@ -21,8 +21,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
     <script>
-    emailjs.init("ib7dCGqF-RS87hrIU");
+        window.env = {
+            EMAILJS_SERVICE_ID: '{{ env('EMAILJS_SERVICE_ID') }}',
+            EMAILJS_TEMPLATE_ID: '{{ env('EMAILJS_TEMPLATE_ID') }}',
+            EMAILJS_USER_EMAIL: '{{ env('EMAILJS_USER_EMAIL') }}',
+            EMAILJS_API_KEY: '{{ env('EMAILJS_API_KEY') }}',
+        };
+
+        emailjs.init(window.env.EMAILJS_API_KEY); // Inicializa o EmailJS com a API key
     </script>
 
 </head>
