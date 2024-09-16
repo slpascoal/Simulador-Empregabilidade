@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Inclui os links para fontes e o Bootstrap, além de um arquivo CSS (app.css) e integração com API do EmailJS -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Simulador de Empregabilidade</title>
@@ -38,10 +40,11 @@
     <div class="BodyContainer">
         <h1>Simulador de Empregabilidade</h1>
         <div class="corpo">
+            <!-- Cabeçalho -->
             <header class="header">
                 <p>Essa aplicação traça uma lista de usuários. <br>Você pode filtrar suas habilidades e experiências de trabalho, para definir se é a pessoa correta para o cargo!</p>
             </header>
-            <!-- Filtros por Habilidades e Cargos -->
+            <!-- Formulário para filtrar usuários por habilidade e cargo; -->
             <nav class="navbar">
                 <form method="GET" action="/users">
                     <label for="key_skill">Filtrar por Habilidade:</label>
@@ -66,7 +69,7 @@
                     </button>
                 </form>
             </nav>
-            <!-- Exibição dos Usuários -->
+            <!-- Lista os usuários em "cards". Cada card possui dados do usuário e atributos data-* para armazenar informações adicionais. -->
             <div class="users-list">
                 @if(count($users) > 0)
                     @foreach ($users as $user)
@@ -97,7 +100,7 @@
                 @endif
             </div>
         </div>
-        <!-- Modal -->
+        <!-- Um modal Bootstrap para exibir detalhes do usuário quando um cartão é clicado. Inclui um botão para recomendar o usuário por email ou fechar o Modal -->
         <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -106,7 +109,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- Conteúdo do Modal será preenchido pelo JavaScript -->
+                        <!-- ... -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="recommendButton">Recomendar Usuário</button>
@@ -117,6 +120,7 @@
         </div>
     </div>
 
+    <!-- No final do <body> temos o link com nosso script externo scripts.js e link com outro script Bootstrap. -->
     <script src="{{ asset('js/scripts.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

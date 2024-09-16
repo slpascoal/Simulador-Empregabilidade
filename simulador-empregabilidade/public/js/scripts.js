@@ -1,31 +1,33 @@
+// Quando o DOM (a página) está totalmente carregado, adiciona eventos de clique a todos os elementos com: '.user-card'
 document.addEventListener('DOMContentLoaded', function () {
     const userCards = document.querySelectorAll('.user-card');
     userCards.forEach(card => {
+        //Ao clicar...
         card.addEventListener('click', function () {
             const avatar = card.querySelector('img').src;
             const name = card.querySelector('h2').textContent;
             const title = card.querySelector('p').textContent;
             const cityState = card.querySelectorAll('p')[1].textContent;
 
-            // Preencher o conteúdo do modal
+            // ... Preenche o modal com informações do usuário selecionado (vindas do Back-End) e mostra o modal.
             const modalBody = document.querySelector('#userModal .modal-body');
             modalBody.innerHTML = `
                 <img src="${avatar}" class="img-fluid" alt="Avatar">
                 <h2>${name}</h2>
                 <p><strong>Cargo:</strong> ${title}</p>
-                <p><strong>Habilidade:</strong> ${card.dataset.keySkill}</p>
+                <p><strong>Cidade e Estado:</strong> ${cityState}</p>
                 <p><strong>Email:</strong> ${card.dataset.email}</p>
                 <p><strong>Telefone:</strong> ${card.dataset.phone}</p>
                 <p><strong>Data de Nascimento:</strong> ${card.dataset.dob}</p>
                 <p><strong>Endereço:</strong> ${card.dataset.address}</p>
+                <p><strong>Habilidade:</strong> ${card.dataset.keySkill}</p>
             `;
 
-            // Mostrar o modal
             const modal = new bootstrap.Modal(document.getElementById('userModal'));
             modal.show();
 
-            // Adicionar o evento de clique para o botão "Recomendar Usuário"
             document.getElementById('recommendButton').addEventListener('click', function() {
+                // Função que utiliza EmailJS para enviar um email recomendando o usuário.
                 sendRecommendationEmail({
                     name: name,
                     title: title,
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Função para fazer o envio dos emails (EmailJS)
 function sendRecommendationEmail(user) {
     const templateParams = {
         to_email: window.env.EMAILJS_USER_EMAIL,
