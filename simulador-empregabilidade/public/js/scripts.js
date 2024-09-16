@@ -13,12 +13,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 <img src="${avatar}" class="img-fluid" alt="Avatar">
                 <h2>${name}</h2>
                 <p><strong>Cargo:</strong> ${title}</p>
-                <p><strong>Cidade e Estado:</strong> ${cityState}</p>
+                <p><strong>Habilidade:</strong> ${card.dataset.keySkill}</p>
                 <p><strong>Email:</strong> ${card.dataset.email}</p>
                 <p><strong>Telefone:</strong> ${card.dataset.phone}</p>
                 <p><strong>Data de Nascimento:</strong> ${card.dataset.dob}</p>
                 <p><strong>Endereço:</strong> ${card.dataset.address}</p>
-                <p><strong>Habilidade:</strong> ${card.dataset.keySkill}</p>
             `;
 
             // Mostrar o modal
