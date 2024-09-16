@@ -91,7 +91,7 @@ Basicamente, os estilos da página.
 
 - `GuzzleHttp\Client`: Como usei a versão 7.2 do PHP, foi necessário usar o Guzzle para fazer a requisição à API de usuários;
 - `index`:
-  - Primeiro obtemos os parâmetros de consulta enviados na URL, usamos `array_filter()` para remover parâmetros vazios ou nulos e então edireciona a requisição para a rota `users.index`, removendo esses parâmetros da URL. Fim isso para resolver um bug com os parâmetros vazios;
+  - Primeiro obtemos os parâmetros de consulta enviados na URL, usamos `array_filter()` para remover parâmetros vazios ou nulos e então edireciona a requisição para a rota `users.index`, removendo esses parâmetros da URL. Fiz isso para resolver um bug com os parâmetros vazios;
   - Com isso, faço a requisição da API Pública através do Cliente (que vem do Guzzle) e armazeno as informações JSON em $users
   - Uso `array_column()` duas vezes para extrair o campo `key_skill` de cada usuári(suas habilidades);
   - `array_unique()` remove duplicatas;
