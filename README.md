@@ -43,6 +43,9 @@ Para rodar a aplicação, basta rodar:
 
 `php artisan serve`
 
+Abra o navegador em:
+`http://localhost:8000/`
+
 
 # Descrição da Aplicação
 Por fins didáticos, deixarei a explicação da minha aplicação:
